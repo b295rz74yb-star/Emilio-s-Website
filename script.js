@@ -38,20 +38,11 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
-// Zähler-Animation in der Hero-Sektion
-const counters = document.querySelectorAll("[data-count]");
-const animateCount = (el) => {
-  const target = Number(el.dataset.count);
-  const duration = 1400;
-  const start = performance.now();
-  const step = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-};
-counters.forEach(animateCount);
+// Preis-Buttons wählen das passende Paket im Formular vor
+const paketSelect = document.getElementById("paketSelect");
+document.querySelectorAll("[data-paket]").forEach((btn) =>
+  btn.addEventListener("click", () => { if (paketSelect) paketSelect.value = btn.dataset.paket; })
+);
 
 // Kontaktformular: Prüfen und per E-Mail-Programm versenden
 const form = document.getElementById("contactForm");
@@ -69,17 +60,28 @@ if (form) {
     });
 
     if (!valid) {
-      status.textContent = "Bitte fülle alle Felder korrekt aus.";
+      status.textContent = "Bitte füllen Sie Name, E-Mail und Nachricht korrekt aus.";
       status.className = "form__status err";
       return;
     }
 
     const data = new FormData(form);
-    const subject = `Anfrage von ${data.get("name")} (${data.get("paket")})`;
-    const body = `Name: ${data.get("name")}\nE-Mail: ${data.get("email")}\nPaket: ${data.get("paket")}\n\n${data.get("message")}`;
+    const funktionen = data.getAll("funktionen").join(", ") || "–";
+    const subject = `Website-Anfrage: ${data.get("betrieb") || data.get("name")} (${data.get("branche")})`;
+    const body = [
+      `Name: ${data.get("name")}`,
+      `Betrieb: ${data.get("betrieb") || "–"}`,
+      `E-Mail: ${data.get("email")}`,
+      `Telefon: ${data.get("telefon") || "–"}`,
+      `Branche: ${data.get("branche")}`,
+      `Paket: ${data.get("paket")}`,
+      `Gewünschte Funktionen: ${funktionen}`,
+      "",
+      data.get("message"),
+    ].join("\n");
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    status.textContent = "Danke! Dein E-Mail-Programm öffnet sich gleich.";
+    status.textContent = "Vielen Dank! Ihr E-Mail-Programm öffnet sich gleich.";
     status.className = "form__status ok";
     form.reset();
   });
