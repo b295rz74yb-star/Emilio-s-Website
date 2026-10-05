@@ -8,10 +8,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="nav nav--solid">
-    <div class="container nav__inner">
-      <a href="index.html" class="logo">moc</a>
-      <nav class="nav__links nav__links--static"><a href="index.html">Zurück</a></nav>
+  <header class="nav is-scrolled">
+    <div class="nav__inner">
+      <div class="nav__side">
+        <a href="index.html" class="nav__back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Zurück</a>
+      </div>
+      <a href="index.html" class="brand" aria-label="moc – zur Startseite">
+        <span class="logo">moc</span>
+        <span class="brand__sub">Made in Italy</span>
+      </a>
+      <div class="nav__side"></div>
     </div>
   </header>
   <main class="legal">

@@ -11,18 +11,31 @@
 
   <!-- ===== Navigation ===== -->
   <header class="nav" id="nav">
-    <div class="container nav__inner">
-      <a href="#top" class="logo" aria-label="moc – zur Startseite">moc</a>
-      <nav class="nav__links" id="navLinks">
-        <a href="#jeans">Die Jeans</a>
-        <a href="#details">Details</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#jeans" class="nav__cta">Bestellen</a>
-      </nav>
-      <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
-        <span></span><span></span>
-      </button>
+    <div class="nav__inner">
+      <div class="nav__side">
+        <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <a href="#top" class="brand" aria-label="moc – zur Startseite">
+        <span class="logo">moc</span>
+        <span class="brand__sub">Made in Italy</span>
+      </a>
+      <div class="nav__side nav__side--right">
+        <a href="#kontakt" class="icon-link" aria-label="Kontakt">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17v11h-17z M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
+        </a>
+        <a href="#jeans" class="icon-link" aria-label="Bestellen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        </a>
+      </div>
     </div>
+    <nav class="drawer" id="navLinks" aria-label="Hauptmenü">
+      <a href="#jeans">Die Jeans</a>
+      <a href="#details">Details</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <div class="drawer__backdrop" id="navBackdrop"></div>
   </header>
 
   <main id="top">
@@ -30,23 +43,19 @@
     <!-- ===== Hero ===== -->
     <section class="hero">
       <img src="images/moc-patch.jpg" alt="Lederpatch mit geprägtem moc-Logo auf dunkelblauem Denim" class="hero__img">
-      <div class="hero__shade"></div>
-      <div class="container hero__content">
-        <p class="eyebrow eyebrow--light">Modell 01 · Japanischer Denim · Made in Italy</p>
-        <h1>Eine Jeans.<br><em>Gemacht, um zu bleiben.</em></h1>
-        <a href="#jeans" class="btn btn--light">Entdecken</a>
-      </div>
     </section>
 
-    <!-- ===== Statement ===== -->
-    <section class="statement">
-      <div class="container container--narrow reveal">
-        <p class="statement__text">
-          Japanischer Denim aus der Kuroki-Weberei, gefertigt in Italien.
-          Wir machen nur eine Jeans – und konzentrieren uns ganz darauf,
-          sie richtig zu machen.
+    <!-- ===== Intro ===== -->
+    <section class="intro">
+      <div class="container intro__inner reveal">
+        <p class="eyebrow">Modell 01</p>
+        <h1>Eine Jeans. Gemacht, um zu bleiben.</h1>
+        <a href="#jeans" class="btn btn--outline">Mehr entdecken</a>
+        <p class="intro__text">
+          Japanischer Denim aus der Kuroki-Weberei, gefertigt in Italien. Ein Patch aus Cavallino,
+          das Logo innen eingenäht, saubere Kontrastnähte. Wir machen nur eine Jeans – und
+          konzentrieren uns ganz darauf, sie richtig zu machen.
         </p>
-        <span class="statement__line"></span>
       </div>
     </section>
 

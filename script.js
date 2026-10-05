@@ -2,13 +2,13 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Navigation: heller Hintergrund nach dem Hero-Bild
+// Navigation: feine Linie beim Scrollen
 const nav = document.getElementById("nav");
-const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > window.innerHeight * 0.6);
+const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 10);
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-// Mobiles Menü
+// Seitliches Menü
 const toggle = document.getElementById("navToggle");
 const links = document.getElementById("navLinks");
 if (toggle && links) {
@@ -20,6 +20,8 @@ if (toggle && links) {
   };
   toggle.addEventListener("click", () => setMenu(!links.classList.contains("is-open")));
   links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+  document.getElementById("navBackdrop")?.addEventListener("click", () => setMenu(false));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 }
 
 // Elemente beim Scrollen einblenden
