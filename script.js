@@ -40,6 +40,36 @@ if ("IntersectionObserver" in window) {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
+// Galerie: Ansicht wechseln (Vorne / Hinten / Detail)
+const gallery = document.getElementById("gallery");
+if (gallery) {
+  const imgs = [...gallery.querySelectorAll(".gallery__img")];
+  const thumbs = [...gallery.querySelectorAll(".gallery__thumb")];
+  let current = 0;
+  const show = (i) => {
+    current = (i + imgs.length) % imgs.length;
+    imgs.forEach((img, n) => img.classList.toggle("is-active", n === current));
+    thumbs.forEach((t, n) => {
+      t.classList.toggle("is-active", n === current);
+      t.setAttribute("aria-pressed", String(n === current));
+    });
+  };
+  thumbs.forEach((t, n) => t.addEventListener("click", () => show(n)));
+  gallery.querySelector(".gallery__nav--prev").addEventListener("click", () => show(current - 1));
+  gallery.querySelector(".gallery__nav--next").addEventListener("click", () => show(current + 1));
+
+  // Wischen auf dem Handy
+  let startX = null;
+  const stage = gallery.querySelector(".gallery__stage");
+  stage.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener("touchend", (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+}
+
 // Größenauswahl
 const selected = { w: null, l: null };
 const sizesBox = document.querySelector(".sizes");
