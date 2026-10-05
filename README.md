@@ -7,7 +7,8 @@ Schlichte, hochwertige Website für die Jeans-Marke **moc** (japanischer Denim d
 - `index.html` – Startseite (Hero, Statement, Produkt „Modell 01“ mit Größenauswahl, Details, Kontakt)
 - `style.css` – Design (Farben oben in `:root`)
 - `script.js` – Menü, Animationen, Größenauswahl, Bestellung per E-Mail
-- `images/` – Produktbilder
+- `images/` – Produktbilder und Monogramm (`moc-emblem.png`)
+- `favicon.png`, `apple-touch-icon.png` – Symbole für Browser-Tab und Homescreen
 - `fonts/` – Schrift Jost (wie die Wortmarke), lokal eingebunden, Lizenz: SIL Open Font License
 - `impressum.html`, `datenschutz.html`, `widerruf.html` – rechtliche Seiten (Platzhalter!)
 

@@ -175,6 +175,7 @@ p { margin: 0 0 1em; }
 .drawer a { color: var(--ink); font-size: 1.5rem; font-weight: 500; letter-spacing: -.01em; }
 .drawer a:hover { opacity: .65; }
 .drawer.is-open { transform: none; }
+.drawer__emblem { width: 72px; height: 72px; margin-top: auto; }
 .drawer__backdrop {
   position: fixed; inset: 0; z-index: 55;
   background: rgba(12, 36, 56, .25);
@@ -206,6 +207,7 @@ p { margin: 0 0 1em; }
 }
 .intro__inner { text-align: center; max-width: 560px; }
 .intro h1 { margin-bottom: 2.4rem; }
+.intro__emblem { width: 112px; height: 112px; margin: 0 auto 2.2rem; }
 .intro__text { margin: 3rem 0 0; font-size: 1.1rem; line-height: 1.6; }
 
 /* ===== Produkt ===== */
@@ -296,6 +298,8 @@ p { margin: 0 0 1em; }
 /* ===== Footer ===== */
 .footer { background: var(--sand); color: var(--ink); padding: 3rem 0; }
 .footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+.footer__brand { display: inline-flex; align-items: center; gap: .9rem; }
+.footer__brand img { width: 44px; height: 44px; }
 .footer nav { display: flex; flex-wrap: wrap; gap: 2rem; }
 .footer nav a, .footer p { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; margin: 0; }
 .footer nav a:hover { opacity: .65; }
@@ -327,6 +331,7 @@ p { margin: 0 0 1em; }
   .hero { grid-template-columns: 1fr; }
   .hero__img { height: auto; min-height: 0; max-height: none; aspect-ratio: 1025 / 1175; }
   .intro { padding: 56px 24px 64px; }
+  .intro__emblem { width: 88px; height: 88px; margin-bottom: 1.8rem; }
   .intro__text { font-size: 1.05rem; margin-top: 2.4rem; text-align: left; }
   .product { padding: 80px 0; }
   .product__inner { grid-template-columns: 1fr; gap: 3rem; }
