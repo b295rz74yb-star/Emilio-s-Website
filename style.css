@@ -196,7 +196,7 @@ p { margin: 0 0 1em; }
   min-height: 640px;
   max-height: 1100px;
   object-fit: cover;
-  object-position: 50% 60%;
+  object-position: 50% 50%;
 }
 .intro {
   display: flex;
@@ -325,7 +325,7 @@ p { margin: 0 0 1em; }
   .nav__side { gap: 1.1rem; }
   .icon-link svg { width: 24px; height: 24px; }
   .hero { grid-template-columns: 1fr; }
-  .hero__img { height: auto; min-height: 0; max-height: none; aspect-ratio: 1025 / 1535; }
+  .hero__img { height: auto; min-height: 0; max-height: none; aspect-ratio: 1025 / 1175; }
   .intro { padding: 56px 24px 64px; }
   .intro__text { font-size: 1.05rem; margin-top: 2.4rem; text-align: left; }
   .product { padding: 80px 0; }
