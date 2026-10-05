@@ -2,9 +2,9 @@
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Navigation: Hintergrund beim Scrollen
+// Navigation: heller Hintergrund nach dem Hero-Bild
 const nav = document.getElementById("nav");
-const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 20);
+const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > window.innerHeight * 0.6);
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
@@ -32,57 +32,56 @@ if ("IntersectionObserver" in window) {
         io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.12 });
   revealEls.forEach((el) => io.observe(el));
 } else {
   revealEls.forEach((el) => el.classList.add("is-visible"));
 }
 
-// Preis-Buttons wählen das passende Paket im Formular vor
-const paketSelect = document.getElementById("paketSelect");
-document.querySelectorAll("[data-paket]").forEach((btn) =>
-  btn.addEventListener("click", () => { if (paketSelect) paketSelect.value = btn.dataset.paket; })
-);
+// Größenauswahl
+const selected = { w: null, l: null };
+const sizesBox = document.querySelector(".sizes");
+document.querySelectorAll(".sizes__options").forEach((group) => {
+  const key = group.dataset.size;
+  const label = document.getElementById(key + "Label");
+  group.addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    group.querySelectorAll("button").forEach((b) => b.classList.toggle("is-active", b === btn));
+    group.classList.add("has-choice");
+    selected[key] = btn.textContent;
+    if (label) label.textContent = btn.textContent;
+    if (selected.w && selected.l) {
+      sizesBox.classList.remove("is-missing");
+      document.getElementById("orderHint").textContent = "";
+    }
+  });
+});
 
-// Kontaktformular: Prüfen und per E-Mail-Programm versenden
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
-const CONTACT_EMAIL = "kontakt@example.com"; // <- hier deine E-Mail-Adresse eintragen
-
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let valid = true;
-    form.querySelectorAll("[required]").forEach((field) => {
-      const ok = field.value.trim() !== "" && field.checkValidity();
-      field.classList.toggle("is-invalid", !ok);
-      if (!ok) valid = false;
-    });
-
-    if (!valid) {
-      status.textContent = "Bitte füllen Sie Name, E-Mail und Nachricht korrekt aus.";
-      status.className = "form__status err";
+// Bestellung per E-Mail (bis ein Shop-System angebunden ist)
+const ORDER_EMAIL = "kontakt@example.com"; // <- hier deine E-Mail-Adresse eintragen
+const orderBtn = document.getElementById("orderBtn");
+const hint = document.getElementById("orderHint");
+if (orderBtn) {
+  orderBtn.addEventListener("click", () => {
+    if (!selected.w || !selected.l) {
+      sizesBox.classList.add("is-missing");
+      hint.textContent = "Bitte wähle Weite und Länge.";
       return;
     }
-
-    const data = new FormData(form);
-    const funktionen = data.getAll("funktionen").join(", ") || "–";
-    const subject = `Website-Anfrage: ${data.get("betrieb") || data.get("name")} (${data.get("branche")})`;
+    sizesBox.classList.remove("is-missing");
+    hint.textContent = "";
+    const subject = `Bestellung moc Modell 01 – W${selected.w} / L${selected.l}`;
     const body = [
-      `Name: ${data.get("name")}`,
-      `Betrieb: ${data.get("betrieb") || "–"}`,
-      `E-Mail: ${data.get("email")}`,
-      `Telefon: ${data.get("telefon") || "–"}`,
-      `Branche: ${data.get("branche")}`,
-      `Paket: ${data.get("paket")}`,
-      `Gewünschte Funktionen: ${funktionen}`,
+      "Hallo moc,",
       "",
-      data.get("message"),
+      "ich möchte folgende Jeans bestellen:",
+      `Modell 01 – Weite ${selected.w}, Länge ${selected.l} – 180 €`,
+      "",
+      "Name:",
+      "Lieferadresse:",
+      "",
     ].join("\n");
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    status.textContent = "Vielen Dank! Ihr E-Mail-Programm öffnet sich gleich.";
-    status.className = "form__status ok";
-    form.reset();
+    window.location.href = `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
