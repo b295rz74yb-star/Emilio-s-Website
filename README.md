@@ -1,6 +1,6 @@
 # moc – Website
 
-Schlichte, hochwertige Website für die Jeans-Marke **moc** – reines HTML, CSS und JavaScript, ohne Build-Schritt.
+Schlichte, hochwertige Website für die Jeans-Marke **moc** (japanischer Denim der Kuroki-Weberei, gefertigt in Italien, Patch aus Cavallino) – reines HTML, CSS und JavaScript, ohne Build-Schritt.
 
 ## Dateien
 
