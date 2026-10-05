@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moc – Jeans</title>
+  <meta name="description" content="moc Modell 01 – Jeans aus japanischem Denim der Kuroki-Weberei, gefertigt in Italien, mit Patch aus Cavallino. 180 €.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <div class="nav__side">
+        <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <a href="#top" class="brand" aria-label="moc – zur Startseite">
+        <span class="logo">moc</span>
+        <span class="brand__sub">Made in Italy</span>
+      </a>
+      <div class="nav__side nav__side--right">
+        <a href="#kontakt" class="icon-link" aria-label="Kontakt">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17v11h-17z M3.5 6.5l8.5 6.5 8.5-6.5"/></svg>
+        </a>
+        <a href="#jeans" class="icon-link" aria-label="Bestellen">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+        </a>
+      </div>
+    </div>
+    <nav class="drawer" id="navLinks" aria-label="Hauptmenü">
+      <a href="#jeans">Die Jeans</a>
+      <a href="#details">Details</a>
+      <a href="#kontakt">Kontakt</a>
+      <img src="images/moc-emblem.webp" alt="" class="drawer__emblem" width="72" height="72">
+    </nav>
+    <div class="drawer__backdrop" id="navBackdrop"></div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero: Bild + Intro ===== -->
+    <section class="hero">
+      <div class="hero__media">
+        <img src="images/moc-hero.jpg" alt="Zwei Personen in moc Jeans in einem warm eingerichteten Raum" class="hero__img">
+      </div>
+      <div class="intro">
+        <div class="intro__inner reveal">
+          <img src="images/moc-emblem.webp" alt="moc Monogramm" class="intro__emblem" width="112" height="112">
+          <p class="eyebrow">Modell 01</p>
+          <h1>Eine Jeans. Gemacht, um zu bleiben.</h1>
+          <a href="#jeans" class="btn btn--outline">Mehr entdecken</a>
+          <p class="intro__text">
+            Japanischer Denim aus der Kuroki-Weberei, gefertigt in Italien. Ein Patch aus Cavallino,
+            das Logo innen eingenäht, saubere Kontrastnähte. Wir machen nur eine Jeans – und
+            konzentrieren uns ganz darauf, sie richtig zu machen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Produkt ===== -->
+    <section class="product" id="jeans">
+      <div class="container product__inner">
+        <div class="product__media reveal">
+          <div class="gallery" id="gallery">
+            <div class="gallery__stage">
+              <img src="images/jeans-vorne.jpg" alt="moc Modell 01 – Vorderansicht, liegend auf Beton" class="gallery__img is-active">
+              <img src="images/jeans-hinten.jpg" alt="moc Modell 01 – Rückansicht mit Lederpatch, liegend auf Beton" class="gallery__img" loading="lazy">
+              <img src="images/detail-patch.jpg" alt="Lederpatch mit geprägtem moc-Monogramm" class="gallery__img" loading="lazy">
+              <button type="button" class="gallery__nav gallery__nav--prev" aria-label="Vorherige Ansicht"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+              <button type="button" class="gallery__nav gallery__nav--next" aria-label="Nächste Ansicht"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="gallery__thumbs">
+              <button type="button" class="gallery__thumb is-active" aria-pressed="true"><img src="images/jeans-vorne.jpg" alt=""><span>Vorne</span></button>
+              <button type="button" class="gallery__thumb" aria-pressed="false"><img src="images/jeans-hinten.jpg" alt=""><span>Hinten</span></button>
+              <button type="button" class="gallery__thumb" aria-pressed="false"><img src="images/detail-patch.jpg" alt=""><span>Detail</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product__info reveal">
+          <p class="eyebrow">moc</p>
+          <h2>Modell 01</h2>
+          <p class="product__price">180 €</p>
+          <p class="product__tax">inkl. MwSt., zzgl. Versand</p>
+
+          <p class="product__desc">
+            Gewebt in Japan von der Kuroki-Weberei, gefertigt in Italien. Gerade Passform,
+            goldfarbene Kontrastnähte, ein Patch aus Cavallino und das moc-Logo
+            innen eingenäht. Zeitlos genug für jeden Tag – und gemacht, um mit dir zu altern.
+          </p>
+
+          <dl class="specs">
+            <div><dt>Stoff</dt><dd>Japanischer Denim, Kuroki</dd></div>
+            <div><dt>Fertigung</dt><dd>Italien</dd></div>
+            <div><dt>Patch</dt><dd>Cavallino (Ponyfell)</dd></div>
+            <div><dt>Logo</dt><dd>Innen eingenäht</dd></div>
+          </dl>
+
+          <div class="sizes">
+            <div class="sizes__group">
+              <p class="sizes__label">Weite <span id="wLabel"></span></p>
+              <div class="sizes__options" data-size="w">
+                <button type="button">28</button><button type="button">29</button><button type="button">30</button><button type="button">31</button><button type="button">32</button><button type="button">33</button><button type="button">34</button>
+              </div>
+            </div>
+            <div class="sizes__group">
+              <p class="sizes__label">Länge <span id="lLabel"></span></p>
+              <div class="sizes__options" data-size="l">
+                <button type="button">30</button><button type="button">31</button><button type="button">32</button><button type="button">33</button><button type="button">34</button>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn--block" id="orderBtn">Bestellen – 180 €</button>
+          <p class="product__hint" id="orderHint" role="status"></p>
+
+          <div class="accordion">
+            <details>
+              <summary>Passform</summary>
+              <p>Gerade geschnitten mit mittlerer Leibhöhe. Fällt normal aus – nimm deine gewohnte Größe. Unsicher? Schreib uns, wir beraten dich gern.</p>
+            </details>
+            <details>
+              <summary>Material &amp; Pflege</summary>
+              <p>Japanischer Denim aus der Kuroki-Weberei, in Italien verarbeitet. Patch aus Cavallino (Ponyfell). Selten waschen – auf links, kalt und ohne Weichspüler – und an der Luft trocknen lassen. Den Patch nicht reiben oder bürsten.</p>
+            </details>
+            <details>
+              <summary>Versand &amp; Rückgabe</summary>
+              <p>Versand innerhalb Deutschlands. Du hast 14 Tage Widerrufsrecht – Details findest du in der Widerrufsbelehrung.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Details ===== -->
+    <section class="details" id="details">
+      <div class="container">
+        <div class="details__head reveal">
+          <p class="eyebrow">Details</p>
+          <h2>Das Wesentliche.</h2>
+        </div>
+        <div class="details__grid">
+          <figure class="reveal">
+            <img src="images/detail-denim.jpg" alt="Detailaufnahme des japanischen Denims" loading="lazy">
+            <figcaption><span>01</span> Der Stoff<small>Japanischer Denim aus der Kuroki-Weberei – dicht gewebt, mit klarer Köperstruktur.</small></figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="images/detail-cavallino.jpg" alt="Detailaufnahme Patch aus Cavallino mit geprägtem moc-Logo" loading="lazy">
+            <figcaption><span>02</span> Der Patch<small>Cavallino – Ponyfell mit geprägtem Logo, rundum vernäht.</small></figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="images/detail-naht.jpg" alt="Detailaufnahme Gürtelschlaufe mit Kontrastnähten" loading="lazy">
+            <figcaption><span>03</span> Die Verarbeitung<small>Gefertigt in Italien. Saubere Kontrastnähte, das Logo innen eingenäht.</small></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kontakt ===== -->
+    <section class="contact" id="kontakt">
+      <div class="container container--narrow reveal">
+        <p class="eyebrow">Kontakt</p>
+        <h2>Fragen zur Größe oder Bestellung?</h2>
+        <p>Schreib uns – wir antworten persönlich.</p>
+        <a href="mailto:kontakt@example.com" class="contact__mail">kontakt@example.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#top" class="footer__brand"><img src="images/moc-emblem.webp" alt="" width="44" height="44"><span class="logo logo--small">moc</span></a>
+      <nav>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="widerruf.html">Widerruf</a>
+      </nav>
+      <p>© <span id="year"></span> moc</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
